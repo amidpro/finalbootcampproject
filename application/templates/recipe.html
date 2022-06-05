@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body_content %}
+
+    {% for recipe in recipes %}
+
+    <div class = "recipe_box">
+        <div class="recipe_table_row">
+          <div class="col-sm"><a class="recipe_name" href ="/recipes/{{ recipe.recipe_name }}"> {{ recipe.recipe_name }} </a></div>
+        </div>
+        <div class="recipe_table_row">
+          <div class="col-sm" style="color: rgb(4, 114, 77); font-size: 25px;" class="recipe_name">Rating: {{ recipe.recipe_rating }} star(s) out of 5</div>
+        </div>
+        <div class="recipe_table_row">
+          <div class="col-sm"><p class = "recipe_description">{{ recipe.recipe_description }}</p></div>
+        </div>
+        <div class="recipe_table_row">
+          <div><img class="recipe_page_images" src="{{ recipe.recipe_img }}" alt = "{{recipe.recipe_name}}"></div>
+        </div>
+        <div class="recipe_table_row">
+          <div class="col-sm"><b>Recipe Difficulty:</b> <p>{{ recipe.difficulty.difficulty_name }}</p></div>
+          <div class="col-sm"><b>Recipe Prep Time:</b> <p>{{ recipe.recipe_prep_time }}</p></div>
+          <div class="col-sm"><b>Recipe Cooking Time:</b> <p>{{ recipe.recipe_cook_time }}</p></div>
+          <div class="col-sm"><b>Recipe Category:</b> <p>{{ recipe.recipe_category }}</p></div>
+        </div>
+        <div class="recipe_table_row">
+          <div class="col-sm"><a class="full_recipe_link" href="/recipes/{{ recipe.recipe_name }}">Full Recipe Here</a></div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+{% endblock %}
